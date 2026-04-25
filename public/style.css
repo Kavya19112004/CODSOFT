@@ -1,0 +1,40 @@
+body {
+    font-family: Arial;
+    background: #f0f2f5;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 400px;
+    background: white;
+    margin-top: 50px;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+#messages {
+    list-style: none;
+    padding: 0;
+    height: 300px;
+    overflow-y: auto;
+}
+
+#messages li {
+    padding: 8px;
+    background: #e4e6eb;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+input {
+    width: 70%;
+    padding: 8px;
+}
+
+button {
+    padding: 8px;
+    background: blue;
+    color: white;
+    border: none;
+}

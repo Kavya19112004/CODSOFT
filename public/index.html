@@ -1,0 +1,42 @@
+<html>
+<head>
+    <title>Real-Time Chat App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>💬 Chat App</h2>
+
+    <ul id="messages"></ul>
+
+    <div class="input-area">
+        <input id="msg" placeholder="Type a message..." autocomplete="off" />
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket = io();
+
+    const username = prompt("Enter your name:");
+
+    function sendMessage() {
+        const input = document.getElementById("msg");
+
+        if(input.value.trim() !== "") {
+            socket.emit("chat message", username + ": " + input.value);
+            input.value = "";
+        }
+    }
+
+    socket.on("chat message", function(msg) {
+        const li = document.createElement("li");
+        li.textContent = msg;
+        document.getElementById("messages").appendChild(li);
+    });
+</script>
+
+</body>
+</html>
